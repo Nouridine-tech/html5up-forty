@@ -50,9 +50,13 @@ jobs:
   # ===============================
   deploy:
     needs: ci
-    runs-on: self-hosted
+    runs-on: ubuntu-latest
 
     steps:
+      - name: Pull latest image
+        run: |
+          echo "Hello deploy"
+
       - name: Pull latest image
         run: |
           docker pull $DOCKER_REGISTRY/$IMAGE_NAME:$IMAGE_TAG
